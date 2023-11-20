@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<article class = "text-spot"> 
+    <div class="texto"> {{ post.content }} </div>
+</article>
+
+<div class = "return-box">
+    <a href="{% url 'posts:index' %}">
+        <img id="return" src="{% static 'images/return-arrow.png' %}" alt="Minha Figura" class="return-arrow" style="width: 100%;">
+    </a>
+</div>
+
+{% endblock content %}

@@ -11,7 +11,7 @@ Página Inicial
     <ul>
         <li><a href="{% url 'index' %}" class="current" class="nav-texto" >Home</a></li>
         <li><a href="{% url 'about' %}" class="nav-texto">Sobre</a></li>
-        <li><a href="{% url 'posts' %}" class="nav-texto">Posts</a></li>
+        <li><a href="{% url 'posts:index' %}" class="nav-texto">Posts</a></li>
     </ul>
 </nav>
 
@@ -62,7 +62,7 @@ Página Inicial
     </div>
     <div class="window-body">
         <img id="infinite-computer" src="{% static 'images/internaut.gif' %}" alt="Minha Figura" class="center" style="width: 100%;">
-        <p><a href="{% url 'posts' %}">Leia meus posts!</a></p>
+        <p><a href="{% url 'posts:index' %}">Leia meus posts!</a></p>
     </div>
 </div>
 

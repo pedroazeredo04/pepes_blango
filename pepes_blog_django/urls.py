@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('staticpages.urls')),
+    path('', include('staticpages.urls')),  ## Linha relativa às páginas estáticas
+    path('posts/', include('posts.urls')),  ## Linha relativa aos posts
     path('admin/', admin.site.urls),
 ]

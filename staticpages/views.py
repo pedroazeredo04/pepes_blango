@@ -8,7 +8,3 @@ def index(request):
 def about(request):
     context = {}
     return render(request, 'staticpages/about.html', context)
-
-def posts(request):
-    context = {}
-    return render(request, 'staticpages/posts.html', context)

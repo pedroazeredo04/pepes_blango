@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+{% load static %}
+
+<nav>
+    <ul>
+        <li><a href="{% url 'index' %}"
+        class="nav-texto" >Home</a></li>
+        <li><a href="{% url 'about' %}" class="nav-texto">Sobre</a></li>
+        <li><a href="{% url 'posts:index' %}" class="current">Posts</a></li>
+    </ul>
+</nav>
+
+{% if posts_list %}
+
+    <ul class="post-list">
+
+    {% for post in posts_list %}
+
+    <li class="post-item">
+        <div class = "post-box">
+            <a href="{% url 'posts:detail' forloop.counter %}">
+                <p class="post-item-text">{{ post.title }}</p>
+            </a>
+            <div classs="textinho"> {{ post.date }} </div>
+        </div>
+    </li>
+
+    {% endfor %}
+
+  </ul>
+{% else %}
+
+<div class = "text-spot">
+    <p class="texto">Nenhum post disponível.</p>
+</div>
+
+{% endif %}
+
+{% endblock content %}
