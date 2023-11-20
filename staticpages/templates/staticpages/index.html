@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Página Inicial
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+
+<nav>
+    <ul>
+        <li><a href="{% url 'index' %}" class="current" class="nav-texto" >Home</a></li>
+        <li><a href="{% url 'about' %}" class="nav-texto">Sobre</a></li>
+        <li><a href="{% url 'posts' %}" class="nav-texto">Posts</a></li>
+    </ul>
+</nav>
+
+<section class="text-spot">
+    <div class="container">
+        <img id="welcome" src="{% static 'images/welcome.gif' %}" alt="Minha Figura">
+
+        <img id="welcome" src="{% static 'images/blog2.gif' %}" alt="Minha Figura">
+
+        <p>
+            <div class="textao">
+                Esse é o meu site!
+            </div>
+
+            <div class="texto">
+                Ele é um blog
+            </div>
+        </p>
+    </div>
+</section>
+
+<!-- Box sobre quem eu sou?! -->
+<div class="window" id="about">
+    <div class="title-bar">
+        <div class="title-bar-text">Sobre</div>
+        <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+        </div>
+    </div>
+    <div class="window-body">
+        <img id="welcome" src="{% static 'images/thinking2.gif' %}" alt="Minha Figura" class="center" style="width: 20%;">
+
+        <p><a href="{% url 'about' %}">Quem sou eu?</a></p>
+    </div>
+</div>
+
+<!-- Box os posts?! -->
+<div class="window" id="links">
+    <div class="title-bar">
+        <div class="title-bar-text">Posts</div>
+        <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+        </div>
+    </div>
+    <div class="window-body">
+        <img id="infinite-computer" src="{% static 'images/internaut.gif' %}" alt="Minha Figura" class="center" style="width: 20%;">
+        <p><a href="/pepes_blog/posts">Leia meus posts!</a></p>
+    </div>
+</div>
+
+{% endblock content %}

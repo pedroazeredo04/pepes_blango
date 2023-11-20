@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        pepes_blog_django
+    </title>
+
+    <!-- Styles! -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'rainbow.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home_windows.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'footer.css' %}">
+
+    <!-- External libs -->
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <header id="cabecalho-principal">
+        
+        <h1 class="rainbow">
+            pepes blog django
+        </h1>
+
+    </header>
+    
+    <main id="conteiner-principal">
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <ul>
+            <li><a target="_blank" class="email" href="mailto:pedro_azeredo@usp.br"><i class="fa fa-fw fa-2x fa-envelope"></i></a></li>
+            <li><a target="_blank" class="github" href="https://github.com/pedroazeredo04"><i class="fa fa-fw fa-2x fa-github"></i></a></li>
+            <li><a target="_blank" class="youtube" href="https://www.youtube.com/channel/UChl1_ea08HGh7iQO67oSkZg"><i class="fa fa-fw fa-2x fa-youtube"></i></a></li>
+            <li><a target="_blank" class="instagram" href="https://www.instagram.com/pedroazeredo1205/"><i class="fa fa-fw fa-2x fa-instagram"></i></a></li>
+            <li><a target="_blank" class="twitter" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"><i class="fa fa-fw fa-2x fa-twitter"></i></a></li>
+        </ul>
+        <br/>
+    </footer>    
+</body>
+
+</html>

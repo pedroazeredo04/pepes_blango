@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Sobre
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+<nav>
+    <ul>
+        <li><a href="{% url 'index' %}"
+        class="nav-texto" >Home</a></li>
+        <li><a href="{% url 'about' %}" class="current">Sobre</a></li>
+        <li><a href="{% url 'posts' %}" class="nav-texto">Posts</a></li>
+    </ul>
+</nav>
+
+<section class="text-spot">
+    <p class="textao"> Sobre mim </p>
+    <p class="texto"> Eu sou o Pedro, estudo engenharia mecatrônica e gosto de robótica, escrever código, tocar violão, das músicas do John Mayer, tomar sorvete na praça e JotaQuest</p>
+    <p class="texto"> Atualmente faço parte da Equipe ThundeRatz de robótica e estou aprendendo alemão</p>
+</section>
+
+    <!-- Box sobre tocar violão?! -->
+    <div class="window" id="violao">
+        <div class="title-bar">
+            <div class="title-bar-text">Sobre</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img id="welcome" src="{% static 'images/violao.gif' %}" alt="Minha Figura" class="center" style="width: 20%;">
+            <p class="windows-text">Eu tocando violão (imagem ilustrativa)</p>
+        </div>
+    </div>
+{% endblock content %}
