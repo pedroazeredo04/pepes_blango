@@ -100,9 +100,8 @@ html {
     display: block;
     background-color: var(--bege);
     width: 70%;
-    height: auto; /* 'auto' para ajustar a altura conforme o conteúdo */
-    margin: 20 auto; /* Simplificado para centralizar horizontalmente */
-    align-self: center;
+    height: auto;
+    margin: 30px auto 0; /* Ajuste o valor de '50px' conforme necessário */
     padding: 20px;
     text-align: center;
     border: 5px solid var(--primary-color);

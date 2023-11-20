@@ -14,7 +14,7 @@
     <!-- Styles! -->
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'rainbow.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'home_windows.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home_window.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'footer.css' %}">
 
     <!-- External libs -->
@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <header id="cabecalho-principal">
+    <header>
         
         <h1 class="rainbow">
             pepes blog django
@@ -34,7 +34,7 @@
 
     </header>
     
-    <main id="conteiner-principal">
+    <main>
         {% block content %}
         {% endblock content %}
     </main>
