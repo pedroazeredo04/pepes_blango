@@ -23,11 +23,11 @@ Página Inicial
 
         <p>
             <div class="textao">
-                Esse é o meu site!
+                pepes blog + Django = pepes blango
             </div>
 
             <div class="texto">
-                Ele é um blog
+                Ainda bem que o HTML não vai ser avaliado nessa atividade não é mesmo
             </div>
         </p>
     </div>
@@ -62,7 +62,7 @@ Página Inicial
     </div>
     <div class="window-body">
         <img id="infinite-computer" src="{% static 'images/internaut.gif' %}" alt="Minha Figura" class="center" style="width: 100%;">
-        <p><a href="/pepes_blog/posts">Leia meus posts!</a></p>
+        <p><a href="{% url 'posts' %}">Leia meus posts!</a></p>
     </div>
 </div>
 
