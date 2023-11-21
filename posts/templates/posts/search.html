@@ -29,12 +29,13 @@
 <div class="text-spot">
 <p class="textao">Resultado da Busca</p>
 
-{% if post_list is not empty %}
+{% if post_list %}
 
 <section class="lista-de-cards">
     {% for post in post_list %}
+    
     <article class="card">
-        <a href="{% url 'posts:detail' post.id %}" class="texto">{{ post.title }} </a>
+        <p class="texto"> {{ forloop.counter }} - <a href="{% url 'posts:detail' post.id %}">{{ post.title }} </a> </p>
     </article>
     {% endfor %}
 </section>

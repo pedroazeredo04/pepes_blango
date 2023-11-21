@@ -5,8 +5,8 @@
 
 <div class="text-spot">
 <p class="textao">Atualizar Dados do Post: </p>
-<p class="texto"> "{{ post.title }}" </p>
-<form method="post" action="{% url 'posts:update' post.id%}">
+<p class="texto"> "{{ object.title }}" </p>
+<form method="post" action="{% url 'posts:update' object.id%}">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Atualizar</button>

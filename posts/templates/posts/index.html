@@ -25,7 +25,7 @@
             <a href="{% url 'posts:detail' post.id %}">
                 <p class="post-item-text">{{ post.title }}</p>
             </a>
-            <div classs="textinho"> {{ post.post_date }} </div>
+            <div classs="textinho"> {{ post.post_date|date }} </div>
         </div>
     </li>
 

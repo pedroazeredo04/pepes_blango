@@ -4,14 +4,14 @@
 {% load static %}
 
 <div class="text-spot">
-<form action="{% url 'posts:delete' post.id %}" method="post">
+<form action="{% url 'posts:delete' object.id %}" method="post">
   {% csrf_token %}
   <p class="textao">
     Você tem certeza que deseja apagar o post
   </p>
 
   <p class="texto">
-    "{{ post.title }}"?
+    "{{ object.title }}"?
   </p>
   <button type="submit">Apagar</button>
 </form>

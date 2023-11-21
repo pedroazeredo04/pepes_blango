@@ -4,7 +4,7 @@
 {% load static %}
 
 <article class = "text-spot"> 
-    <div class="texto"> {{ post.text }} </div>
+    <div class="texto"> {{ object.text }} </div>
 </article>
 
 <div class = "return-box">
@@ -14,13 +14,13 @@
 </div>
 
 <div class = "thrash-box">
-    <a href="{% url 'posts:delete' post.id %}">
+    <a href="{% url 'posts:delete' object.id %}">
         <img id="return" src="{% static 'images/thrash.png' %}" alt="Minha Figura" class="thrash-can" style="width: 100%;">
     </a>
 </div>
 
 <div class = "edit-box">
-    <a href="{% url 'posts:update' post.id %}">
+    <a href="{% url 'posts:update' object.id %}">
         <img id="return" src="{% static 'images/edit.png' %}" alt="Minha Figura" class="edit-icon" style="width: 100%;">
     </a>
 </div>
