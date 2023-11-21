@@ -15,6 +15,6 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-User.objects.filter(username=os.environ["DJANGO_SUPERUSER_USERNAME"]).exists() or \
-    User.objects.create_superuser(os.environ["DJANGO_SUPERUSER_USERNAME"], os.environ["DJANGO_SUPERUSER_EMAIL"], os.environ["DJANGO_SUPERUSER_PASSWORD"])
+User.objects.filter(username=os.environ["pedrin_dj"]).exists() or \
+    User.objects.create_superuser(os.environ["pedrin_dj"], os.environ["pedro_azeredo@usp.br"], os.environ["cavalobranco123"])
 EOF
