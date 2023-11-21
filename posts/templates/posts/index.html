@@ -9,6 +9,8 @@
         class="nav-texto" >Home</a></li>
         <li><a href="{% url 'about' %}" class="nav-texto">Sobre</a></li>
         <li><a href="{% url 'posts:index' %}" class="current">Posts</a></li>
+        <li><a href="{% url 'posts:create' %}" class="nav-texto">Criar</a></li>
+        <li><a href="{% url 'posts:search' %}" class="nav-texto">Procurar</a></li>
     </ul>
 </nav>
 
@@ -20,10 +22,10 @@
 
     <li class="post-item">
         <div class = "post-box">
-            <a href="{% url 'posts:detail' forloop.counter %}">
+            <a href="{% url 'posts:detail' post.id %}">
                 <p class="post-item-text">{{ post.title }}</p>
             </a>
-            <div classs="textinho"> {{ post.date }} </div>
+            <div classs="textinho"> {{ post.post_date }} </div>
         </div>
     </li>
 

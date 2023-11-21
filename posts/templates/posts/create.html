@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% block content %}
+{% load static %}
+
+<nav>
+    <ul>
+        <li><a href="{% url 'index' %}"
+        class="nav-texto" >Home</a></li>
+        <li><a href="{% url 'about' %}" class="nav-texto">Sobre</a></li>
+        <li><a href="{% url 'posts:index' %}" class="nav-texto">Posts</a></li>
+        <li><a href="{% url 'posts:create' %}" class="current">Criar</a></li>
+        <li><a href="{% url 'posts:search' %}" class="nav-texto">Procurar</a></li>
+    </ul>
+</nav>
+
+<div class="text-spot">
+<p class="textao">Inserir Novo Post</p>
+<form method="POST" action="{% url 'posts:create' %}">
+  {% csrf_token %}
+  <p>
+    <label for="id_title" class="texto">Título: </label>
+    <textarea name="post_title" id="id_title" placeholder="Digite aqui o nome do seu post"></textarea>
+  </p>
+  <p>
+    <label for="id_text" class="texto">Texto: </label>
+    <textarea name="post_text" id="id_text" placeholder="Digite aqui o conteúdo do seu post"></textarea>
+  </p>
+  <button type="submit">Criar</button>
+</form>
+</div>
+
+{% endblock content %}

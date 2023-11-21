@@ -116,6 +116,22 @@ html {
     width: 30%;
 }
 
+.thrash-can {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: 30%;
+}
+
+.edit-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: 30%;
+}
+
 .return-box {
     display: block;
     background-color: white;
@@ -127,6 +143,31 @@ html {
     position: absolute;
     border: 5px solid var(--nav-color)
 }
+
+.thrash-box {
+    display: block;
+    background-color: white;
+    width: 50px;
+    margin: 0 0 0 0;
+    top: 10%;
+    right: 20.5%;
+    z-index: 3;
+    position: absolute;
+    border: 5px solid var(--nav-color)
+}
+
+.edit-box {
+    display: block;
+    background-color: white;
+    width: 50px;
+    margin: 0 0 0 0;
+    top: 10%;
+    right: 28.5%;
+    z-index: 3;
+    position: absolute;
+    border: 5px solid var(--nav-color)
+}
+
 
 .textaozao {
     font-size: 5em;
@@ -267,6 +308,18 @@ nav a.current {
         top: 10%;
         left: 20%;
     }
+
+    .thrash-box {
+        width: 5%;
+        top: 10%;
+        right: 20%;
+    }
+
+    .edit-box {
+        width: 5%;
+        top: 10%;
+        right: 28%;
+    }
 }
 
 /* Para telas pequenas, 2 colunas */
@@ -279,4 +332,24 @@ nav a.current {
         width: 4%;
         top: 7%;
     }
+
+    .thrash-box {
+        width: 4%;
+        top: 7%;
+    }
+
+    .edit-box {
+        width: 4%;
+        top: 7%;
+    }
+}
+
+#id_title {
+    width: 100%;
+    height: 50px; /* Ajuste a altura conforme necessário */
+}
+
+#id_text {
+    width: 100%;
+    height: 150px; /* Ajuste a altura conforme necessário */
 }

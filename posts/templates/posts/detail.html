@@ -4,12 +4,24 @@
 {% load static %}
 
 <article class = "text-spot"> 
-    <div class="texto"> {{ post.content }} </div>
+    <div class="texto"> {{ post.text }} </div>
 </article>
 
 <div class = "return-box">
     <a href="{% url 'posts:index' %}">
         <img id="return" src="{% static 'images/return-arrow.png' %}" alt="Minha Figura" class="return-arrow" style="width: 100%;">
+    </a>
+</div>
+
+<div class = "thrash-box">
+    <a href="{% url 'posts:delete' post.id %}">
+        <img id="return" src="{% static 'images/thrash.png' %}" alt="Minha Figura" class="thrash-can" style="width: 100%;">
+    </a>
+</div>
+
+<div class = "edit-box">
+    <a href="{% url 'posts:update' post.id %}">
+        <img id="return" src="{% static 'images/edit.png' %}" alt="Minha Figura" class="edit-icon" style="width: 100%;">
     </a>
 </div>
 
