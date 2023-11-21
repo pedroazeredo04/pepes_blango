@@ -17,14 +17,7 @@
 <p class="textao">Inserir Novo Post</p>
 <form method="POST" action="{% url 'posts:create' %}">
   {% csrf_token %}
-  <p>
-    <label for="id_title" class="texto">Título: </label>
-    <textarea name="post_title" id="id_title" placeholder="Digite aqui o nome do seu post"></textarea>
-  </p>
-  <p>
-    <label for="id_text" class="texto">Texto: </label>
-    <textarea name="post_text" id="id_text" placeholder="Digite aqui o conteúdo do seu post"></textarea>
-  </p>
+  {{ form.as_p }}
   <button type="submit">Criar</button>
 </form>
 </div>

@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Posts
+from .forms import PostsForm
 from django.shortcuts import render, get_object_or_404
 
 
@@ -18,15 +19,19 @@ def detail_post(request, post_id):
 
 def create_post(request):
     if request.method == 'POST':
-        requested_post_name = request.POST['post_title']
-        requested_post_text = request.POST['post_text']
-        post = Posts(title=requested_post_name,
-                     text=requested_post_text)
-        post.save()
-        return HttpResponseRedirect(
-            reverse('posts:detail', args=(post.id, )))
+        form = PostsForm(request.POST)
+        if form.is_valid():
+            requested_post_name = form.cleaned_data['title']
+            requested_post_text = form.cleaned_data['text']
+            post = Posts(title=requested_post_name,
+                        text=requested_post_text)
+            post.save()
+            return HttpResponseRedirect(
+                reverse('posts:detail', args=(post.id, )))
     else:
-        return render(request, 'posts/create.html', {})
+        form = PostsForm()
+    context = {'form': form}
+    return render(request, 'posts/create.html', context)
 
 
 def search_posts(request):
@@ -43,13 +48,24 @@ def update_post(request, post_id):
     post = get_object_or_404(Posts, pk=post_id)
 
     if request.method == "POST":
-        post.title = request.POST['post_title']
-        post.text = request.POST['post_text']
-        post.save()
-        return HttpResponseRedirect(
-            reverse('posts:detail', args=(post.id, )))
+        form = PostsForm(request.POST)
+        if form.is_valid():
+            post.title = form.cleaned_data['title']
+            post.text = form.cleaned_data['text']
+            post.save()
+            return HttpResponseRedirect(
+                reverse('posts:detail', args=(post.id, ))
+            )
 
-    context = {'post': post}
+    else:
+        form = PostsForm(
+            initial={
+                'title': post.title,
+                'text': post.text
+            }
+        )
+
+    context = {'post': post, 'form': form}
     return render(request, 'posts/update.html', context)
 
 

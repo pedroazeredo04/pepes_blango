@@ -8,16 +8,7 @@
 <p class="texto"> "{{ post.title }}" </p>
 <form method="post" action="{% url 'posts:update' post.id%}">
   {% csrf_token %}
-  <p>
-    <label for="id_title">Título:</label>
-    <textarea type="text" name="post_title" id="id_title"> {{ post.title }} </textarea>
-  </p>
-
-  <p>
-    <label for="id_text">Título:</label>
-    <textarea type="text" name="post_text" id="id_text"> {{ post.text }} </textarea>
-  </p>
-
+  {{ form.as_p }}
   <button type="submit">Atualizar</button>
 </form>
 </div>
