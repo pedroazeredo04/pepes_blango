@@ -26,4 +26,40 @@
     </a>
 </div>
 
+<hr>
+
+<section>
+    <header>
+        <h3 class="textao">Comentários</h3>
+    </header>
+        
+            {% if posts.comentarios_set.all %}
+
+                {% for comentario in posts.comentarios_set.all %}
+
+                <div class="text-spot">
+                    <figure>
+                        <blockquote class="texto">
+                            {{ comentario.text }}
+                        </blockquote>
+                        <figcaption> {{ comentario.author }}</figcaption>
+                    </figure>
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+            <div class="text-spot">
+                <p class="texto">Ainda não existe nenhum comentário para este post.</p>
+            </div>
+            {% endif %}
+        
+</section>
+
+<hr>
+
+<div class="text-spot">
+    <a href="{% url 'posts:comentario' posts.pk %}"><button>Crie seu comentário</button></a>
+</div>
+
 {% endblock content %}

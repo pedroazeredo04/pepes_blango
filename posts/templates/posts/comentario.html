@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-spot">
+<p class="textao"> 
+    Comentar no post {{ post.titulo }} 
+</p>
+
+<form action="{% url 'posts:comentario' post.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Postar Comentário</button>
+</form>
+
+<p>
+    <a href="{% url 'posts:detail' post.id %}">Voltar para a página do filme</a>
+</p>
+</div>
+{% endblock content %}
