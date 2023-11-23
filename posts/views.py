@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Posts
-from .forms import PostsForm
+from .models import Posts, Comentarios
+from .forms import PostsForm, ComentarioForm
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 
@@ -45,3 +45,21 @@ class PostsDeleteView(generic.DeleteView):
 
     def get_success_url(self) -> str:
         return reverse('posts:index')
+
+def create_comentario(request, post_id):
+    post = get_object_or_404(Posts, pk=post_id)
+    if request.method == 'POST':
+        form = ComentarioForm(request.POST)
+        if form.is_valid():
+            comentario_author = form.cleaned_data['author']
+            comentario_text = form.cleaned_data['text']
+            comentario = Comentarios(author=comentario_author,
+                                     text=comentario_text,
+                                     post=post)
+            comentario.save()
+            return HttpResponseRedirect(
+                reverse('posts:detail', args=(post_id, )))
+    else:
+        form = ComentarioForm()
+    context = {'form': form, 'post': post}
+    return render(request, 'posts/comentario.html', context)
