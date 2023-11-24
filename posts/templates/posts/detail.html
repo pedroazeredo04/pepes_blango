@@ -8,6 +8,28 @@
     <p class="texto"> {{ object.text }} </p>
 </article>
 
+{% if posts.categoria_set.all %}
+
+    <h2> Categorias: </h2>
+
+    {% for categoria in posts.categoria_set.all %}
+
+        <div class="text-spot">
+            <a href="{% url 'posts:categoria-detail' categoria.id %}" class="texto">
+                {{ forloop.counter }} - {{ categoria.name }}
+            </a>
+        </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <div class="text-spot">
+        <p class="texto">Ainda não existe nenhuma categoria para este post.</p>
+    </div>
+    
+{% endif %}
+
 <div class = "return-box">
     <a href="{% url 'posts:index' %}">
         <img id="return" src="{% static 'images/return-arrow.png' %}" alt="Minha Figura" class="return-arrow" style="width: 100%;">
@@ -26,13 +48,14 @@
     </a>
 </div>
 
-<hr>
-
 <section>
+
+    <hr>
+
     <header>
         <h3 class="textao">Comentários</h3>
     </header>
-        
+
             {% if posts.comentarios_set.all %}
 
                 {% for comentario in posts.comentarios_set.all %}
@@ -53,13 +76,17 @@
                 <p class="texto">Ainda não existe nenhum comentário para este post.</p>
             </div>
             {% endif %}
-        
+
 </section>
 
-<hr>
+<br>
 
-<div class="text-spot">
+<div class="nav-texto">
     <a href="{% url 'posts:comentario' posts.pk %}"><button>Crie seu comentário</button></a>
 </div>
+
+<br>
+
+<br>
 
 {% endblock content %}

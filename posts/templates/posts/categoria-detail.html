@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<article class = "text-spot">
+    <p class="textao"> {{ object.name }} </p>
+    <p class="texto"> {{ object.description }} </p>
+</article>
+
+<div class = "return-box">
+    <a href="{% url 'posts:categorias' %}">
+        <img id="return" src="{% static 'images/return-arrow.png' %}" alt="Minha Figura" class="return-arrow" style="width: 100%;">
+    </a>
+</div>
+
+<section>
+
+    <hr>
+
+    <header>
+        <h3 class="textao">Posts</h3>
+    </header>
+
+    {% if categoria.posts.all %}
+
+        {% for post in categoria.posts.all %}
+
+        <div class="text-spot">
+            <a href="{% url 'posts:detail' post.id %}" class="texto">
+                {{ forloop.counter }} - {{ post.title }}
+            </a>
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+    <div class="text-spot">
+        <p class="texto">Ainda não existe nenhum post para esta categoria.</p>
+    </div>
+    
+    {% endif %}
+
+</section>
+
+{% endblock content %}

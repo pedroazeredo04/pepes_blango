@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
-from django.urls import reverse
-from .models import Posts, Comentarios
+from django.urls import reverse, reverse_lazy
+from .models import Posts, Comentarios, Categoria
 from .forms import PostsForm, ComentarioForm
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
@@ -8,7 +8,6 @@ from django.views import generic
 class PostsListView(generic.ListView):
     model = Posts
     template_name = 'posts/index.html'
-
 
 class PostsDetailView(generic.DetailView):
     model = Posts
@@ -63,3 +62,17 @@ def create_comentario(request, post_id):
         form = ComentarioForm()
     context = {'form': form, 'post': post}
     return render(request, 'posts/comentario.html', context)
+
+class CategoriaListView(generic.ListView):
+    model = Categoria
+    template_name = 'posts/categorias.html'
+
+class CategoriaCreateView(generic.CreateView):
+    model = Categoria
+    template_name = 'posts/create_categoria.html'
+    fields = ['name', 'description', 'posts']
+    success_url = reverse_lazy('posts:categorias')
+
+class CategoriaDetailView(generic.DetailView):
+    model = Categoria
+    template_name = 'posts/categoria-detail.html'
