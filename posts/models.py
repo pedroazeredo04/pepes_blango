@@ -18,3 +18,12 @@ class Comentarios(models.Model):
 
     def __str__(self):
         return f'"{self.text}" - {self.author.username}'
+
+
+class Categoria(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    posts = models.ManyToManyField(Posts)
+
+    def __str__(self):
+        return f'{self.name}'
